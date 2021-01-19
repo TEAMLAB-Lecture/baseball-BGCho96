@@ -31,8 +31,7 @@ def is_digit(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    test=float(user_input_number)
-    result = False if test%1!=0 else True
+    result=user_input_number.isdigit()
 
     # ==================================
     return result
@@ -116,8 +115,13 @@ def is_validated_number(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    
-    result = all([is_digit(user_input_number), is_between_100_and_999(user_input_number), not is_duplicated_number(user_input_number)])
+    result=False
+    if is_digit(user_input_number):
+        if is_between_100_and_999(user_input_number):
+            if not is_duplicated_number(user_input_number):
+                result=True
+
+
     # ==================================
     return result
 
@@ -145,7 +149,7 @@ def get_not_duplicated_three_digit_number():
     # get_random_number() 함수를 사용하여 random number 생성
     while True:
         dice=get_random_number()
-        if is_validated_number(dice):
+        if is_validated_number(str(dice)):
             break
     result = str(dice)
     # ==================================
