@@ -59,7 +59,7 @@ def is_between_100_and_999(user_input_number):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     
-    result = True if (int(user_input_number))<1000 and (int(user_input_number))>100 else False
+    result = True if (int(user_input_number))<1000 and (int(user_input_number))>=100 else False
 
     # ==================================
     return result
@@ -200,7 +200,7 @@ def get_strikes_or_ball(user_input_number, random_number):
     ball_indicate1.sort()
     ball_indicate2.sort()
     for i in range(3):
-        if ball_indicate1[i]==ball_indicate2[i]:
+        if ball_indicate1[i] in ball_indicate2:
             ball+=1
     ball=ball-strike
     if ball<0:
